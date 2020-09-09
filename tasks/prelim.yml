@@ -8,7 +8,7 @@
   check_mode: false
 
 - name: "PRELIM | Gather accounts with empty password fields"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       cat /etc/shadow | awk -F: '($2 == \"\" ) {j++;print $1; } END {exit j}'"
   args:
       executable: /bin/bash
@@ -17,7 +17,7 @@
   check_mode: false
 
 - name: "PRELIM | Gather UID 0 accounts other than root"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       cat /etc/passwd | awk -F: '($3 == 0 && $1 != \"root\") {i++;print $1 } END {exit i}'"
   args:
       executable: /bin/bash
@@ -62,7 +62,7 @@
 
 # Individual service checks
 - name: "PRELIM | Check for xinetd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show xinetd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -71,7 +71,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for ntpd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show {{ ntp_service[ansible_os_family] }} | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -80,7 +80,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for chronyd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show {{ chrony_service[ansible_os_family] }} | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -89,7 +89,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for avahi-daemon service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show avahi-daemon | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -98,7 +98,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for cups service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show cups | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -107,7 +107,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for dhcpd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show dhcpd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -116,7 +116,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for slapd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show slapd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -125,7 +125,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for nfs service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show nfs | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -134,7 +134,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for rpcbind service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show rpcbind | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -143,7 +143,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for named service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show named | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -152,7 +152,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for vsftpd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show vsftpd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -161,7 +161,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for httpd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show httpd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -170,7 +170,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for dovecot service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show dovecot | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -179,7 +179,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for smb service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show smb | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -188,7 +188,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for squid service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show squid | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -197,7 +197,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for snmpd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show snmpd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -206,7 +206,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for ypserv service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show ypserv | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -215,7 +215,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for rsh.socket service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show rsh.socket | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -224,7 +224,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for rlogin.socket service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show rlogin.socket | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -233,7 +233,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for rexec.socket service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show rexec.socket | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -242,7 +242,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for telnet service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show telnet | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -251,7 +251,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for tftp service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show tftp | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -260,7 +260,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for rsyncd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show rsyncd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -269,7 +269,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for ntalk service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show ntalk | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -278,7 +278,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for autofs service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show autofs | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
@@ -287,7 +287,7 @@
   check_mode: false
 
 - name: "PRELIM | Check for rhnsd service"
-  shell: "set -o pipefail
+  shell: "set -o pipefail;
       systemctl show rhnsd | grep LoadState | cut -d = -f 2"
   args:
       executable: /bin/bash
