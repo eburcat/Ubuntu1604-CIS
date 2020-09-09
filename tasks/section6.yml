@@ -294,6 +294,7 @@
       line: '\1"{{ fixsudo.stdout_lines[0] }}"'
       backrefs: true
   when:
+      - ubuntu1604cis_rule_6_2_6
       - fixsudo.stdout_lines[0]
   tags:
       - level1
