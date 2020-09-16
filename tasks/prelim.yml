@@ -35,6 +35,8 @@
     name: "{{ auditd_package[ansible_os_family] }}"
     state: present
     install_recommends: false
+  when:
+    - ubuntu1604cis_auditd_required
 
 - name: "PRELIM | Section 5.1 | Configure cron"
   apt:

@@ -327,6 +327,7 @@ ubuntu1604cis_telnet_required: false
 ubuntu1604cis_talk_required: false
 ubuntu1604cis_rsh_required: false
 ubuntu1604cis_ypbind_required: false
+ubuntu1604cis_auditd_required: false
 
 # Time Synchronization
 ubuntu1604cis_time_synchronization: chrony
