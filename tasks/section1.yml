@@ -478,7 +478,7 @@
       - level1
       - notscored
       - patch
-      - rule_1.1.18
+      - rule_1.1.17
       - notimplemented
 
 - name: "NOTSCORED | 1.1.18 | PATCH | Ensure nosuid option set on removable media partitions"
@@ -546,6 +546,7 @@
       - notscored
       - patch
       - rule_1.2.1
+      - notimplemented
 
 
 - name: "NOTSCORED | 1.2.3 | PATCH | Ensure GPG keys are configured"
